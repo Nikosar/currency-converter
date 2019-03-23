@@ -22,4 +22,4 @@ frontend/yarn-error.log*
 taskforfundcount.iml
 .idea
 target
-
+src/main/java/resources/static/bundle.js
