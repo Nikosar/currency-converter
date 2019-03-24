@@ -24,9 +24,8 @@ public class ProfitCalculator {
 
     public Double calculate(LocalDate purchaseDate, LocalDate sellDate, double amount, Currency base, Currency other)
             throws IOException {
-        List<Currency> currencyCode = Collections.singletonList(other);
-        RateDTO purchaseRateDTO = rateRequest.request(purchaseDate, base, currencyCode);
-        RateDTO sellRateDTO = rateRequest.request(sellDate, base, currencyCode);
+        RateDTO purchaseRateDTO = rateRequest.request(purchaseDate, base);
+        RateDTO sellRateDTO = rateRequest.request(sellDate, base);
 
         String currencyCode2 = other.getCurrencyCode();
         Double purchaseRate = purchaseRateDTO.getRates().get(currencyCode2);

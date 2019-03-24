@@ -8,5 +8,5 @@ import java.util.Collection;
 import java.util.Currency;
 
 public interface ExchangeRateService {
-    RateDTO request(LocalDate date, Currency base, Collection<Currency> currencyCodes) throws IOException;
+    RateDTO request(LocalDate date, Currency base) throws IOException;
 }

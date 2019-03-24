@@ -13,7 +13,7 @@ import java.time.LocalDate;
 import java.util.Currency;
 
 @RestController
-@SpringBootApplication(scanBasePackages = {"calculator", "service"})
+@SpringBootApplication(scanBasePackages = {"calculator", "service", "aspect"})
 @CrossOrigin
 public class Controller {
     private final ProfitCalculator calculator;

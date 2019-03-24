@@ -32,9 +32,8 @@ public class ProfitCalculatorTest {
 
         rateDTO.setRates(rates);
         ExchangeRateService mock = mock(ExchangeRateService.class);
-        List<Currency> currencyCode = Collections.singletonList(rub);
-        when(mock.request(purchaseDate, usd, currencyCode)).thenReturn(rateDTO);
-        when(mock.request(sellDate, usd, currencyCode)).thenReturn(rateDTO);
+        when(mock.request(purchaseDate, usd)).thenReturn(rateDTO);
+        when(mock.request(sellDate, usd)).thenReturn(rateDTO);
 
         ProfitCalculator profitCalculator = new ProfitCalculator(mock);
         double profit = profitCalculator.calculate(purchaseDate, sellDate, 1, usd, rub);

@@ -28,19 +28,15 @@ public class ExchangeRateServiceRemote implements ExchangeRateService{
      *
      * @param date - historical rate date
      * @param base - base exchange currency
-     * @param currencyCodes - currency codes to compare
      * @return RateDTO with exchange rates and currency conversion
      * @throws IOException
      */
-    public RateDTO request(LocalDate date, Currency base, Collection<Currency> currencyCodes) throws IOException {
+    public RateDTO request(LocalDate date, Currency base) throws IOException {
         String formattedDate = dateTimeFormatter.format(date);
-        String joinedCurrencyCodes = currencyCodes.stream()
-                .map(Currency::getCurrencyCode)
-                .collect(Collectors.joining(","));
 
-        URL url = null;
+        URL url;
         url = new URL("https://ratesapi.io/api/" + formattedDate + "?" +
-                "&base=" + base.getCurrencyCode() + "&symbols=" + joinedCurrencyCodes);
+                "&base=" + base.getCurrencyCode());
         URLConnection connection = url.openConnection();
 
         RateDTO rateDTO;
