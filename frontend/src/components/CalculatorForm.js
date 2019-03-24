@@ -32,8 +32,8 @@ class CalculatorForm extends React.Component{
             <form className="calculate_form" onSubmit={this.handleSubmit}>
                 <label htmlFor="date">Date</label>
                 <input name="purchaseDate" className="date" type="date" value={purchaseDate} onChange={this.handleDateChange}/>
-                <label htmlFor="amount">Amount</label>
-                <input name="amount" type="number" value={amount ? amount + ' USD': amount} onChange={this.handleAmountChange}/>
+                <label htmlFor="amount">Amount USD</label>
+                <input name="amount" type="number" value={amount} onChange={this.handleAmountChange}/>
                 <button type="submit">Recalculate</button>
                 <label htmlFor="amount">Profit</label>
                 <input readOnly="true" value={profit ? profit.toFixed(2) + " RUB" : profit}/>
